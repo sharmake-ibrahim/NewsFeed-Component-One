@@ -65,6 +65,8 @@ body {
   }
   .article-open {
     height: auto;
+    background-color: #81C784;
+    color: white;
   }
   .menu-button {
     position: absolute;

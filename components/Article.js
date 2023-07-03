@@ -72,10 +72,32 @@ const data = [
       adipiscing elit. Nidorina Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoqueen Lorem ipsum dolor sit amet,
       consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum dolor
       sit amet, consectetur adipiscing elit. Nidoking Lorem ipsum`
+    },
+    {
+      title: 'Ina Nafyar',
+      date: 'Jan 1st, 2023',
+      content: `Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Squirtle Lorem ipsum dolor sit amet, consectetur adipiscing elit. Wartortle Lorem ipsum dolor
+      sit amet, consectetur adipiscing elit. Blastoise Lorem ipsum dolor sit amet, consectetur adipiscing elit. Caterpie Lorem
+      ipsum dolor sit amet, consectetur adipiscing elit. Metapod Lorem ipsum dolor sit amet, consectetur adipiscing elit. Butterfree
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weedle Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Kakuna Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beedrill Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Pidgey Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pidgeotto Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Pidgeot Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rattata Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Raticate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Spearow Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Fearow Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ekans Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Arbok Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pikachu Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Raichu Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sandshrew Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Sandslash Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Nidorina Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidoqueen Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum dolor
+      sit amet, consectetur adipiscing elit. Nidoking Lorem ipsum`
     }
   ];
   
-  /*
+/*   
     Step 1: Write a component called 'articleMaker' to create an article.
     Your component is a function that takes an article object as its only argument,
     and returns a DOM node looking like the one below:
@@ -102,3 +124,63 @@ const data = [
   */
   
 
+    
+
+   function articleMaker(title, date, content) {
+
+//     // creating elements
+    const article = document.createElement('div');
+     const heading = document.createElement('h2');
+     const Date = document.createElement('p');
+     const articleContent = document.createElement('p');
+     const Span = document.createElement("span");
+
+//   //Appending  
+//   
+    article.appendChild(heading);
+    article.appendChild(Date);
+    article.appendChild(Span);
+    article.appendChild(articleContent);
+    
+ 
+
+//   /// adding css class names  console.log(article);
+
+  article.classList.add('article');
+   Date.classList.add('date');
+  Span.classList.add('expandButton');
+
+// /// adding content 
+heading.textContent = title;
+ Date.textContent = date;
+ articleContent.textContent = content;
+ Span.textContent = "Read More";
+
+
+
+  
+
+// // adding events 
+
+ Span.addEventListener("click", function(event) {
+  article.classList.toggle('article-open')
+ })
+
+
+   return article
+  }
+ 
+ 
+
+
+
+
+  const articles = document.querySelector('.articles');
+  
+ data.map(function(elements) {
+  articles.appendChild(articleMaker(elements.title, elements.date, elements.content));
+ })
+
+
+
+ 
